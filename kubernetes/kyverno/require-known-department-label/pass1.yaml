@@ -4,7 +4,7 @@ metadata:
   name: require-known-department-label-pass1
   labels:
     mycompany.com/department: accounts
-    mycompany.com/policy-version: "2.1.0"
+    mycompany.com/policy-version: "2.1.1"
 spec:
   containers:
   - name: nginx

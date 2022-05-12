@@ -39,7 +39,7 @@ spec:
             - "*"
           selector:
             matchLabels:
-              mycompany.com/policy-version: "2.1.0"
+              mycompany.com/policy-version: "2.1.1"
     validate:
       message: "The label `mycompany.com/department` is required."
       pattern:
