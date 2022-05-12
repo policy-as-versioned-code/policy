@@ -20,7 +20,7 @@ definition:
       resource_types: "all"
       attribute: 'tags.mycompany.com.department'
       operator: "equals"
-      value: ounts
+      value: acounts
     - cond_type: "attribute"
       resource_types: "all"
       attribute: 'tags.mycompany.com.department'
