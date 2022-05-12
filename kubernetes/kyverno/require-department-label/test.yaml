@@ -1,0 +1,32 @@
+
+name: tests
+
+policies:
+  - policy.yaml
+resources:
+  - fail0.yaml
+  - pass0.yaml
+  - skip0.yaml
+  - skip1.yaml
+
+results:
+- policy: require-department-label
+  rule: require-department-label
+  resource: require-department-label-fail0
+  kind: Pod
+  result: fail
+- policy: require-department-label
+  rule: require-department-label
+  resource: require-department-label-pass0
+  kind: Pod
+  result: pass
+- policy: require-department-label
+  rule: require-department-label
+  resource: require-department-label-skip0
+  kind: Pod
+  result: skip
+- policy: require-department-label
+  rule: require-department-label
+  resource: require-department-label-skip1
+  kind: Pod
+  result: skip
