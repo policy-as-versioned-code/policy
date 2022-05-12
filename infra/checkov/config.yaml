@@ -1,0 +1,6 @@
+framework:
+  - terraform
+external-checks-dir: ../policy/infra/checkov/
+run-all-external-checks: true
+check: 
+  - CUSTOM_*

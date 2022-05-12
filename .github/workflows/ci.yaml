@@ -1,0 +1,40 @@
+name: Policy Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  kyverno:
+    name: Kyverno tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.0
+
+      - name: Get kyverno
+        run: wget -q -O - https://github.com/kyverno/kyverno/releases/download/v1.6.2/kyverno-cli_v1.6.2_linux_x86_64.tar.gz | tar -C /usr/local/bin -xzf - kyverno
+
+      - name: Kyverno tests
+        run: kyverno test kubernetes/kyverno
+
+  checkov:
+    name: Checkov tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.0.0
+
+      - name: Get checkov
+        run: pip install -r requirements.txt
+
+      - name: Setup BATS
+        uses: mig4/setup-bats@v1
+        with:
+          bats-version: 1.6.0
+
+      - name: BATS tests
+        run: bats infra/checkov/test.bats
