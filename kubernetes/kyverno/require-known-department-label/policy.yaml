@@ -1,0 +1,48 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-known-department-label
+  annotations:
+    policies.kyverno.io/title: Require Known Department Label
+    policies.kyverno.io/category: Example Org Policy
+    policies.kyverno.io/severity: medium
+    policies.kyverno.io/subject: Label
+    policies.kyverno.io/description: >-
+      It is important we know the department that resources belong to, so you
+      need to define a 'mycompany.com/department' label on all your resources.
+    pod-policies.kyverno.io/autogen-controllers: none
+spec:
+  validationFailureAction: enforce
+  background: false
+  rules:
+  - name: require-known-department-label
+    exclude:
+      any:
+      - resources:
+          namespaces:
+          - kube-system
+      - resources:
+          namespaceSelector:
+            matchLabels:
+              "mycompany.com/require-known-department-label": exempt
+
+      - resources:
+          selector:
+            matchLabels:
+              "mycompany.com/require-known-department-label": exempt
+    match:
+      all:
+      - resources:
+          namespaces:
+            - "*?"
+          kinds:
+            - "*"
+          selector:
+            matchLabels:
+              mycompany.com/policy-version: "2.0.0"
+    validate:
+      message: "The label `mycompany.com/department` is required to be one of [tech|acounts|servicedesk|hr]"
+      pattern:
+        metadata:
+          labels:
+            "mycompany.com/department": "tech|acounts|servicedesk|hr"

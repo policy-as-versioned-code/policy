@@ -8,3 +8,4 @@ commonLabels:
 
 resources:
   - require-department-label/policy.yaml
+  - require-known-department-label/policy.yaml
