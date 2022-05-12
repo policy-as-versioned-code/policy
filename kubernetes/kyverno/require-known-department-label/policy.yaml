@@ -41,8 +41,8 @@ spec:
             matchLabels:
               mycompany.com/policy-version: "2.1.0"
     validate:
-      message: "The label `mycompany.com/department` is required to be one of [tech|accounts|servicedesk|hr]"
+      message: "The label `mycompany.com/department` is required to be one of [tech|accounts|servicedesk|hr|sales]"
       pattern:
         metadata:
           labels:
-            "mycompany.com/department": "tech|accounts|servicedesk|hr"
+            "mycompany.com/department": "tech|accounts|servicedesk|hr|sales"

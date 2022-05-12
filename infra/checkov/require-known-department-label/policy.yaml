@@ -26,3 +26,8 @@ definition:
       attribute: 'tags.mycompany.com.department'
       operator: "equals"
       value: servicedesk
+    - cond_type: "attribute"
+      resource_types: "all"
+      attribute: 'tags.mycompany.com.department'
+      operator: "equals"
+      value: sales
