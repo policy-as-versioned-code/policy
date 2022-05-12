@@ -6,6 +6,7 @@ policies:
 resources:
   - fail0.yaml
   - pass0.yaml
+  - pass1.yaml
   - skip0.yaml
   - skip1.yaml
 
@@ -18,6 +19,11 @@ results:
 - policy: require-known-department-label
   rule: require-known-department-label
   resource: require-known-department-label-pass0
+  kind: Pod
+  result: pass
+- policy: require-known-department-label
+  rule: require-known-department-label
+  resource: require-known-department-label-pass1
   kind: Pod
   result: pass
 - policy: require-known-department-label

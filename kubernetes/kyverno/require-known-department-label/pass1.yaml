@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: require-known-department-label-pass1
+  labels:
+    mycompany.com/department: accounts
+    mycompany.com/policy-version: "2.0.0"
+spec:
+  containers:
+  - name: nginx
+    image: nginx
