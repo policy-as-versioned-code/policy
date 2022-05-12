@@ -4,7 +4,7 @@ metadata:
   name: require-department-label-skip0
   labels:
     mycompany.com/require-department-label: exempt
-    mycompany.com/policy-version: "1.0.0"
+    mycompany.com/policy-version: "2.0.0"
 spec:
   containers:
   - name: nginx
