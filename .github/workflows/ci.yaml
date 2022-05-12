@@ -37,14 +37,4 @@ jobs:
           bats-version: 1.6.0
 
       - name: BATS tests
-        continue-on-error: true
-        run: bats --report-formatter junit infra/checkov/test.bats
-
-      - name: Test Report
-        uses: dorny/test-reporter@0d00bb14cb0cc2c9b8985df6e81dd333188224e1 # renovate: tag=v1.5.0
-        if: always()
-        with:
-          name: checkov results
-          path: report.xml
-          reporter: java-junit
-          fail-on-error: false
+        run: bats infra/checkov/test.bats
