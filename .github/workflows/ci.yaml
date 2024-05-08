@@ -14,7 +14,7 @@ jobs:
     name: Kyverno tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
+      - uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
 
       - name: Get kyverno
         run: wget -q -O - https://github.com/kyverno/kyverno/releases/download/v1.6.2/kyverno-cli_v1.6.2_linux_x86_64.tar.gz | tar -C /usr/local/bin -xzf - kyverno
@@ -26,7 +26,7 @@ jobs:
     name: Checkov tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@0ad4b8fadaa221de15dcec353f45205ec38ea70b # v4.1.4
+      - uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
 
       - name: Get checkov
         run: pip install -r requirements.txt
